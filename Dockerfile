@@ -25,9 +25,9 @@ EXPOSE 9199
 ADD ./dist/ /tmp/
 
 RUN apk --no-cache add openjdk11-jre bash && \
-    yarn global add /tmp/firebase-tools-10.6.0.tgz && \
+    yarn global add /tmp/firebase-tools-${VERSION}.tgz && \
     yarn cache clean && \
-    rm /tmp/firebase-tools-10.6.0.tgz && \
+    rm /tmp/firebase-tools-${VERSION}.tgz && \
     firebase setup:emulators:database && \
     firebase setup:emulators:firestore && \
     firebase setup:emulators:pubsub && \
