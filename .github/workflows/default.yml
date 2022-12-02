@@ -6,7 +6,7 @@ on:
 
 env:
   REPOSITORY: jackmichaud/firebase-tools
-  VERSION: 10.8.0
+  VERSION: 11.16.2
 
 jobs:
   firebase-tools:
