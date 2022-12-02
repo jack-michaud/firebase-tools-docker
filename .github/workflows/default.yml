@@ -6,7 +6,7 @@ on:
 
 env:
   REPOSITORY: jackmichaud/firebase-tools
-  VERSION: 10.7.1
+  VERSION: dev
 
 jobs:
   firebase-tools:
@@ -14,31 +14,15 @@ jobs:
 
     strategy:
       matrix:
-        context: [
-          {
-            dockerfile: Dockerfile,
-            node: node-lts,
-            os: alpine
-          },
-          {
-            dockerfile: Dockerfile.node16,
-            node: node-16,
-            os: alpine
-          },
-          {
-            dockerfile: Dockerfile.node14,
-            node: node-14,
-            os: alpine
-          },
-          {
-            dockerfile: Dockerfile.node12,
-            node: node-12,
-            os: alpine
-          }
-        ]
+        context:
+          [
+            { dockerfile: Dockerfile, node: node-lts, os: alpine },
+            { dockerfile: Dockerfile.node16, node: node-16, os: alpine },
+            { dockerfile: Dockerfile.node14, node: node-14, os: alpine },
+            { dockerfile: Dockerfile.node12, node: node-12, os: alpine },
+          ]
 
     steps:
-
       - name: Checkout the repository
         uses: actions/checkout@v2
 
